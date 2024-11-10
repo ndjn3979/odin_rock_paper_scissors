@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+let humanScore = 0
+let compScore = 0
+
+        function getComputerChoice(){
+            let y = Math.floor(Math.random()*3)
+            if (y == 0) {
+                console.log ("Computer picked rock.")
+                return "rock"
+            } else if (y == 1) {
+                console.log ("Computer picked paper.")
+                return "paper"
+            } else if (y == 2) {
+                console.log ("Computer picked scissors.")
+                return "scissors"
+            }
+        }
+
+        function getHumanChoice(){
+            let a = prompt("Rock, Paper, Scissors?")
+            let b = a.toLowerCase()
+            return b
+            }
+
+        function playGame(){
+            function playRound(human, computer){
+                if ((human=="rock")&&(computer=="rock")){
+                    console.log("It's a Draw.")
+                    console.log("You:"+humanScore+" Computer:"+compScore)
+                } else if ((human=="rock")&&(computer == "scissors")) {
+                    humanScore++
+                    console.log("You win!")
+                    console.log("You:"+humanScore+" Computer:"+compScore)
+                } else if ((human=="rock")&&(computer == "paper")) {
+                    compScore++
+                    console.log("You lose...")
+                    console.log("You:"+humanScore+" Computer:"+compScore)
+                } else if ((human=="paper")&&(computer=="paper")){
+                    console.log("It's a Draw.")
+                    console.log("You:"+humanScore+" Computer:"+compScore)
+                } else if ((human=="paper")&&(computer == "rock")) {
+                    humanScore++
+                    console.log("You win!")
+                    console.log("You:"+humanScore+" Computer:"+compScore)
+                } else if ((human=="paper")&&(computer == "scissors")) {
+                    compScore++
+                    console.log("You lose...")
+                    console.log("You:"+humanScore+" Computer:"+compScore)
+                } else if ((human=="scissors")&&(computer=="scissors")){
+                    console.log("It's a Draw.")
+                    console.log("You:"+humanScore+" Computer:"+compScore)
+                } else if ((human=="scissors")&&(computer == "paper")) {
+                    humanScore++
+                    console.log("You win!")
+                    console.log("You:"+humanScore+" Computer:"+compScore)
+                } else if ((human=="scissors")&&(computer == "rock")) {
+                    compScore++
+                    console.log("You lose...")
+                    console.log("You:"+humanScore+" Computer:"+compScore)
+                }
+            } for (i=0; i<6; i++){
+                playRound(getHumanChoice(), getComputerChoice())
+            } if (humanScore > compScore) {
+                console.log("You won the game with "+humanScore+" over the Computer's "+compScore+"!")
+            } else if (compScore > humanScore) {
+                console.log("Computer won the game with "+compScore+" over your "+humanScore+"...")
+            } else if (compScore == humanScore) {
+                console.log("It's a tie with your "+humanScore+" and the Computer's "+compScore+".")
+            }
+        }
+
+        playGame()
+    </script>
+</body>
+</html>
